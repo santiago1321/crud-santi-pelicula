@@ -65,7 +65,13 @@ function crearPelicula(e){
     limpiarFormulario();
     //cerrar ventana modal
     modalFormPelicula.hide();
-crearFila(nuevaPelicula)
+crearFila(nuevaPelicula);
+//mostrar mensaje al usuario
+Swal.fire(
+    'Pelicula creada!',
+    'La pelicula fue creada correctamente',
+    'success'
+  )
 //cerrar la ventana modal 
 modalFormPelicula.hide();
 }
