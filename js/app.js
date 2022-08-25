@@ -21,7 +21,7 @@ cargaInicial();
 function cargaInicial(){
 if(listaPeliculas.length > 0){
 //dibujar tabla 
-listaPeliculas.map((pelicula)=>{crearFila()});
+listaPeliculas.map((pelicula)=>{crearFila(pelicula)});
 //else mostrar un msj a un usuario que no hay elementos para mostraar
 }
 function crearFila(pelicula){
@@ -65,7 +65,7 @@ function crearPelicula(e){
     limpiarFormulario();
     //cerrar ventana modal
     modalFormPelicula.hide();
-crearFila()
+crearFila(nuevaPelicula)
 //cerrar la ventana modal 
 modalFormPelicula.hide();
 }
