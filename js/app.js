@@ -16,6 +16,34 @@ let formulario = document.querySelector('#formPelicula');
 btnCrearPelicula.addEventListener('click',mostrarFormulario);
 formulario.addEventListener('submit',crearPelicula);
 
+cargaInicial();
+
+function cargaInicial(){
+if(listaPeliculas.length > 0){
+//dibujar tabla 
+listaPeliculas.map((pelicula)=>{crearFila()});
+//else mostrar un msj a un usuario que no hay elementos para mostraar
+}
+function crearFila(pelicula){
+console.log(pelicula)
+}
+let tablaPelicula = document.querySelector('#tablaPelicula');
+tablaPelicula.innerHTML +=`<th scope="row">${pelicula.codigo}</th>
+                <td>${pelicula.titulo}</td>
+                <td>${pelicula.descripcion}</td>
+                <td>${pelicula.imagen}</td>
+                <td>${pelicula.genero}</td>
+                <td>
+                  <button class="btn btn-warning" >
+                    <i class="bi bi-pencil-square"></i>
+                  </button>
+                  <button class="btn btn-danger">
+                    <i class="bi bi-x-square"></i>
+                  </button>
+                </td>
+              </tr>`
+}
+
 function mostrarFormulario(){
     modalFormPelicula.show();
     codigo.value = uuidv4();
@@ -37,6 +65,9 @@ function crearPelicula(e){
     limpiarFormulario();
     //cerrar ventana modal
     modalFormPelicula.hide();
+crearFila()
+//cerrar la ventana modal 
+modalFormPelicula.hide();
 }
 
 function limpiarFormulario(){
@@ -47,4 +78,3 @@ function limpiarFormulario(){
 function guardarDatosEnLS(){
     localStorage.setItem('listaPeliculasKey', JSON.stringify(listaPeliculas))
 }
-
